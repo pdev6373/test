@@ -1,9 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Roboto", sans-serif;
+  background: #fff;
+}
+
+img {
+  display: block;
+}
+
+li {
+  list-style: none;
 }
 
 a {
@@ -11,6 +27,253 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding-block: 32px;
+  color: #4d5760;
+  width: 304px;
+  max-height: 900px;
+  border-right: 1px solid #eff1f6;
+  background: #fff;
+}
+
+@media (max-width: 1080px) {
+  .sidebar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: fixed;
+    left: -304px;
+    width: 304px;
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ff530392;
+  border-radius: 3px;
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+  margin-left: 54px;
+}
+
+.sidebar__nav {
+  margin-bottom: 196px;
+}
+
+.sidebar__profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 60px 16px;
+}
+
+.sidebar__nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__nav__list__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 58px;
+  padding-block: 12px;
+}
+
+.sidebar__nav__list__item__active {
+  color: #ff5403;
+}
+
+.sidebar__nav__list__item__active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 28px;
+  background: #ff5403;
+  border-radius: 3px;
+}
+
+.sidebar__profile__name {
+  font-size: 15px;
+  font-weight: 16px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.dashboard {
+  position: relative;
+  padding: 22px 60px;
+  flex-grow: 1;
+}
+
+.dashboard__name {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 46px;
+  color: #131316;
+}
+
+.dashboard__topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard__greeting {
+  font-size: 24px;
+  font-weight: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #131316;
+}
+
+.dashboard__reminder {
+  font-size: 14px;
+  font-weight: 22px;
+  margin-bottom: 23px;
+  color: #31373d;
+}
+
+.dashboard__viewAnalytics {
+  font-size: 14px;
+  font-weight: 22px;
+  color: #ff5403;
+}
+
+.dashboard__timeWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dashboard__time {
+  font-size: 14px;
+  font-weight: 16px;
+  padding: 12px 16px;
+  border: 1px solid #eff1f6;
+  border-radius: 100px;
+  color: #31373d;
+  cursor: pointer;
+}
+
+.dashboard__time__active {
+  border: 1px solid #ff5403;
+  background: #ffddcd;
+  color: #ff5403;
+}
+
+.dashboard__chart {
+  max-width: 100%;
+  border: 1px solid #eff1f6;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+}
+
+.dashboard__chart__headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dashboard__chart__number {
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.dashboard__chart__header {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.dashboard__chart__allTime {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #31373d;
+  margin-bottom: 24px;
+}
+
+.dashboard__donutsWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.dashboard__donutWrapper {
+  border: 1px solid #eff1f6;
+  border-radius: 12px;
+  padding: 24px 24px 44px;
+  width: 100%;
+}
+
+.dashboard__donutWrapper__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+.dashboard__donutWrapper__inner {
+  display: flex;
+}
+
+.sidebar__profile__more {
+  cursor: pointer;
+}
+
+.dashboard__donutsWrapper {
+  margin-bottom: 20px;
+}
+
+.dashboard__donutWrapper__title {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.015em;
+  color: #131316;
+}
+
+.dashboard__donutWrapper__report {
+  font-size: 14px;
+  line-height: 22px;
+  color: #ff5403;
+}
+
+.loading__indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
